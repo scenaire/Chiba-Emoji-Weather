@@ -1,6 +1,6 @@
 const req = require('request');
 var Twit = require('twit');
-const { CONSUMER_SECRET } = require('./config.js');
+const { CONSUMER_SECRET, ICONS } = require('./config.js');
 
 //App own modules
 const config = require('./config.js');
@@ -14,7 +14,7 @@ var T = new Twit({
     strictSSL: true,
 });
 
-T.post('statuses/update', {status: 'Tweet From Node.js!'}, function(err, data, response){
+T.post('statuses/update', {status: ICONS.SNOW + " ลองทวิตจาก Node.js เป็นภาษาไทยพร้อมอีโมจิ"}, function(err, data, response){
     if (err) {
         console.log(err);
     } else {
