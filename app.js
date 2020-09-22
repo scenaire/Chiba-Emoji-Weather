@@ -4,9 +4,6 @@ const req = require('request');
 var TwitterBot = require("node-twitterbot").TwitterBot;
 const { ICONS } = require('./icons.js');
 
-//App own modules
-const config = require('./config.js');
-
 var Bot = new TwitterBot({
     consumer_key: process.env.BOT_CONSUMER_KEY,
     consumer_secret: process.env.BOT_CONSUMER_SECRET,
