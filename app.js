@@ -1,15 +1,17 @@
+require('dotenv').config
+
 const req = require('request');
 var TwitterBot = require("node-twitterbot").TwitterBot;
-const { ICONS } = require('./config.js');
+const { ICONS } = require('./icons.js');
 
 //App own modules
 const config = require('./config.js');
 
 var Bot = new TwitterBot({
-    consumer_key: config.CONSUMER_KEY,
-    consumer_secret: config.CONSUMER_SECRET,
-    access_token: config.ACCESS_TOKEN,
-    access_token_secret: config.ACCESS_TOKEN_SECERT,
+    consumer_key: process.env.BOT_CONSUMER_KEY,
+    consumer_secret: process.env.BOT_CONSUMER_SECRET,
+    access_token: process.env.BOT_ACCESS_TOKEN,
+    access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET,
 });
 
 var random = Math.floor(Math.random() * 8);
