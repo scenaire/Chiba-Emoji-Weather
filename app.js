@@ -1,6 +1,6 @@
 const req = require('request');
-var TwitterBot = require('node-twitterbot').TwitterBot;
-const { CONSUMER_SECRET, ICONS } = require('./config.js');
+var TwitterBot = require("node-twitterbot").TwitterBot;
+const { ICONS } = require('./config.js');
 
 //App own modules
 const config = require('./config.js');
