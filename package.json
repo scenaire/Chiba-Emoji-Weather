@@ -19,6 +19,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "emoji-unicode": "^2.0.1",
+    "node-emoji": "^1.10.0",
     "node-twitterbot": "^0.2.2",
     "twit": "^2.2.11"
   }
