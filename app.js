@@ -20,7 +20,7 @@ function GetData() {
 
     var base_url = 'https://api.openweathermap.org/data/2.5/weather?id=' + process.env.CHIBA_CITY_ID +
                     '&appid=' + process.env.OPENWEATHER_API_KEY +
-                    '&units=' + process.env.UNITS;
+                    '&units=' + process.env.UNITS + '&lang=th';
 
     request({url: base_url, json: true}, function (error, response, body) {
         if (!error && response.statusCode === 200) {
