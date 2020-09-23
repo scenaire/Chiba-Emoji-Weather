@@ -9,4 +9,4 @@ app.get('/callback', function(req, res) {
     res.send('hello world');
 });
 
-app.listen(3000 || process.env.PORT);
+app.listen(process.env.PORT);
