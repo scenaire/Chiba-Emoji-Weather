@@ -56,7 +56,7 @@ function Tweet() {
     // var weatherUpdate = "Currently 😎 Chiba is experiencing " + weatherDescription + " at " + currentTemp + " °C. " +
     // "humidity: " + humidity + " % and " + ConvertMetersPerSecondToKmPerHour(windSpeed) + " Km/h Wind.";
 
-    var weatherUpdate = 'รายงานสภาพอากาศขณะนี้ ' + catRandom() + '\n\nชาวชิบะซิตี้กำลังเผชิญกับ ' + wD + '\n' +
+    var weatherUpdate = 'รายงานสภาพอากาศขณะนี้ ' + catRandom() + '\n\nชาวชิบะซิตี้กำลังเผชิญกับ' + wD + '\n' +
                 'อุณหภูมิ : ' + currentTemp + ' °C \nค่าความชื้น : ' + humidity + " %\n" + 'ความเร็วลม : ' + ConvertMetersPerSecondToKmPerHour(windSpeed) + ' Km/h';
 
     var tweet = {

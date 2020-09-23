@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/scenaire/Chiba-Emoji-Weather#readme",
   "dependencies": {
+    "axios": "^0.20.0",
     "dotenv": "^8.2.0",
     "emoji-unicode": "^2.0.1",
     "express": "^4.17.1",
