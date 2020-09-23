@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <img id="twitterauth" src="https://cdn.cms-twdigitalassets.com/content/dam/developer-twitter/auth-docs/sign-in-with-twitter-gray.png.img.fullhd.medium.png" alt="" srcset="">
+    
+        <script>
+
+            $(document).ready(function() {
+                $('#twitterauth').click(function() {
+                    window.location.href = '/callback';
+                })
+            });
+
+        </script>
+    
+    
+    </body>
+
+</html>
+
