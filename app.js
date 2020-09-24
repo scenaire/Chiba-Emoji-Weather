@@ -134,7 +134,19 @@ function getCurrentTime() {
     var current_time = new Date();
     current_time = current_time.toLocaleString("en-US", {timeZone: "Asia/Bangkok"});
     current_time = new Date(current_time); 
-    return current_time.getHours() + ':' + current_time.getMinutes();
+
+    var hours = current_time.getHours();
+    var minutes = current_time.getMinutes();
+
+    if (hours == 0) {
+        hours = hours + "0";
+    }
+
+    if (minutes == 0) {
+        minutes = minutes + "0";
+    }
+
+    return hours + ':' + minutes;
 }
 
 function catRandom() {
