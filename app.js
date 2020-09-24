@@ -14,7 +14,7 @@ var T = new Twit({
     strictSSL: true
 });
 
-var currentTemp, wD, windSpeed, feels_like, humidity;
+var currentTemp, wD, windSpeed, feels_like, humidity, id;
 
 function GetData() {
 
@@ -29,6 +29,7 @@ function GetData() {
             humidity = body.main.humidity;
             windSpeed = body.wind.speed;
             wD = body.weather[0].description;
+            id = body.weather[0].id;
 
             CleanData();
             Tweet();
@@ -53,18 +54,18 @@ function ConvertMetersPerSecondToKmPerHour(speed) {
 
 function Tweet() {
 
-    // var weatherUpdate = "Currently 😎 Chiba is experiencing " + weatherDescription + " at " + currentTemp + " °C. " +
-    // "humidity: " + humidity + " % and " + ConvertMetersPerSecondToKmPerHour(windSpeed) + " Km/h Wind.";
-
-    var weatherUpdate = 'รายงานสภาพอากาศขณะนี้ ' + catRandom() + '\n\nชาวชิบะซิตี้กำลังเผชิญกับ' + wD + '\n' +
-                'อุณหภูมิ : ' + currentTemp + ' °C \nค่าความชื้น : ' + humidity + " %\n" + 'ความเร็วลม : ' + ConvertMetersPerSecondToKmPerHour(windSpeed) + ' Km/h';
+    var weatherUpdate = 'รายงานสภาพอากาศขณะนี้ ' + catRandom() + '\n\n' + getEmojis(id) + wD + ' ' + getEmojis(id) + '\n\n' 
+                    + emoji.get('thermometer') +' อุณหภูมิจริง : ' + currentTemp + " °C \n"
+                    + getSmiley(feels_like) + ' ให้ความรู้สึกเหมือน : ' + feels_like + " °C \n"
+                    + '\u{1f4a7}' + ' ค่าความชื้น : ' + humidity + " %\n" + 
+                    '\u{1f390}' + ' ความเร็วลม : ' + ConvertMetersPerSecondToKmPerHour(windSpeed) + ' Km/h';
 
     var tweet = {
         status: weatherUpdate
     }
 
     var updateName = {
-        name: 'Ｓｃｅｎａｉｒｅ ' + emoji.random().emoji
+        name: ' Chiba Weather ' + getEmojis(id)
     }
 
     T.post('statuses/update', tweet, callbackTweet);
@@ -90,13 +91,69 @@ function Tweet() {
 
 }
 
-function getEmojis(description) {
-    if (description.includes("rain")) return ICONS.RAIN;
+function getEmojis(id) {
+
+    var id_convert = Math.floor(id/100);
+
+    if (id_convert != 8) {
+        switch(id_convert) {
+            case 2: return ICONS.THUNDERSTROM;
+            case 3: return ICONS.RAIN;
+            case 5: return ICONS.SHOWER_RAIN;
+            case 6: return ICONS.SNOW;
+            case 7: return ICONS.MIST;
+        }
+    } else {
+        switch(id) {
+            case 800: return ICONS.CLEAR_SKY;
+            case 801: return ICONS.PART_CLOUDY;
+            case 802: return ICONS.PART_CLOUDY;
+            case 803: return ICONS.CLOUD;
+            case 804: return ICONS.CLOUD;
+        }
+    }
+    
+}
+
+function getSmiley(feels_like) {
+    if (feels_like < 10) {
+        return '\u{1f976}';
+    } else if (feels_like >= 10 && feels_like < 25) {
+        return '\u{1f604}';
+    } else if (feels_like >= 25 && feels_like < 35) {
+        return '\u{1f605}';
+    } else {
+        return '\u{1f975}';
+    }
 }
 
 function catRandom() {
     var cat = CATS[Math.floor(Math.random() * CATS.length)];
     return cat;
+}
+
+function getWords(id) {
+
+    var id_convert = Math.floor(id/100);
+
+    if (id_convert != 8) {
+        switch(id_convert) {
+            case 2: return ICONS.THUNDERSTROM;
+            case 3: return 'อย่าลืมหยิบร่มด้วยนะ ' + '\u{1f302}';
+            case 5: return 'ดูแลสุขภาพกันด้วยนะ ' + '\u{1fa7a}';
+            case 6: return 'Do you wanna build a snowman~ ' + ICONS.SNOWMAN;
+            case 7: return 'ฝุ่น ควัน มลภาวะ อย่าลืมหยิบแมสก์ด้วยนะ ' + '\u{1f637}';
+        }
+    } else {
+        switch(id) {
+            case 800: return ICONS.CLEAR_SKY;
+            case 801: return ICONS.PART_CLOUDY;
+            case 802: return ICONS.PART_CLOUDY;
+            case 803: return ICONS.CLOUD;
+            case 804: return ICONS.CLOUD;
+        }
+    }
+
 }
 
 GetData();
