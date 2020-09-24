@@ -48,7 +48,7 @@ function CleanData() {
 
 function Tweet() {
 
-    var sunset_tweet = 'มืดแล้วนะ! ' + catRandom() + '\n\nพระอาทิตย์ตก ' + '\u{1F303}' + ' '+sunset_time+' น.';
+    var sunset_tweet = 'จะมืดแล้วนะ! ' + catRandom() + '\n\nพระอาทิตย์ตก ' + '\u{1F303}' + ' '+sunset_time+' น.';
 
     var tweet = {
         status: sunset_tweet
