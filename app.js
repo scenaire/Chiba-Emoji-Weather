@@ -54,7 +54,8 @@ function ConvertMetersPerSecondToKmPerHour(speed) {
 
 function Tweet() {
 
-    var weatherUpdate = 'รายงานสภาพอากาศขณะนี้ ' + catRandom() + '\n\n' + getEmojis(id) + wD + ' ' + getEmojis(id) + '\n\n' 
+    
+    var weatherUpdate = 'รายงานสภาพอากาศเวลา ' + getCurrentTime() + '  ' + catRandom() + '\n\n' + getEmojis(id) + ' ' + wD + ' ' + getEmojis(id) + '\n\n' 
                     + emoji.get('thermometer') +' อุณหภูมิจริง : ' + currentTemp + " °C \n"
                     + getSmiley(feels_like) + ' ให้ความรู้สึกเหมือน : ' + feels_like + " °C \n"
                     + '\u{1f4a7}' + ' ค่าความชื้น : ' + humidity + " %\n" + 
@@ -95,21 +96,23 @@ function getEmojis(id) {
 
     var id_convert = Math.floor(id/100);
 
+    console.log(id);
+
     if (id_convert != 8) {
         switch(id_convert) {
-            case 2: return ICONS.THUNDERSTROM;
-            case 3: return ICONS.RAIN;
-            case 5: return ICONS.SHOWER_RAIN;
-            case 6: return ICONS.SNOW;
-            case 7: return ICONS.MIST;
+            case 2: console.log('thunderstorm'); return ICONS.THUNDERSTROM;
+            case 3: console.log('drizzle'); return ICONS.RAIN;
+            case 5: console.log('rain'); return ICONS.SHOWER_RAIN;
+            case 6: console.log('snow'); return ICONS.SNOW;
+            case 7: console.log('mist'); return ICONS.MIST;
         }
     } else {
         switch(id) {
-            case 800: return ICONS.CLEAR_SKY;
-            case 801: return ICONS.PART_CLOUDY;
-            case 802: return ICONS.PART_CLOUDY;
-            case 803: return ICONS.CLOUD;
-            case 804: return ICONS.CLOUD;
+            case 800: console.log('clear sky'); return ICONS.CLEAR_SKY;
+            case 801: console.log('cloud 25'); return ICONS.PART_CLOUDY;
+            case 802: console.log('cloud 50'); return ICONS.PART_CLOUDY;
+            case 803: console.log('cloud 75'); return ICONS.CLOUD;
+            case 804: console.log('cloud 100'); return ICONS.CLOUD;
         }
     }
     
@@ -125,6 +128,13 @@ function getSmiley(feels_like) {
     } else {
         return '\u{1f975}';
     }
+}
+
+function getCurrentTime() {
+    var current_time = new Date();
+    current_time = current_time.toLocaleString("en-US", {timeZone: "Asia/Bangkok"});
+    current_time = new Date(current_time); 
+    return current_time.getHours() + ':' + current_time.getMinutes();
 }
 
 function catRandom() {

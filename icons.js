@@ -1,13 +1,15 @@
+var emoji = require('node-emoji');
+
 const icons = {
     ICONS: {
         CLEAR_SKY: '\u2600',          //return ☀️️
         CLOUD: '\u2601',        //rerurn ☁️️
         RAIN: '\u2614',         //return ☔
         PART_CLOUDY: '\u26c5',  //return ⛅
-        SHOWER_RAIN: '\u{1F326}',//return 🌦
+        SHOWER_RAIN: '\u{1f326}',//return 🌦
         SNOW: '\u2744',         //return ❄️️
         THUNDERSTROM: '\u26c8', //return ⛈
-        MIST: '\u{1f328}',      //return 🌫️
+        MIST: emoji.get('fog'),      //return 🌫️
         SNOWMAN: '\u2603',      //return ☃
         BLANK: '\u0020',        //return blank
     },
