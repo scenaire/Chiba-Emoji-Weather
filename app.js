@@ -138,12 +138,12 @@ function getCurrentTime() {
     var hours = current_time.getHours();
     var minutes = current_time.getMinutes();
 
-    if (hours == 0) {
-        hours = hours + "0";
+    if (Math.floor(hours/10) == 0) {
+        hours = "0" + hours;
     }
 
-    if (minutes == 0) {
-        minutes = minutes + "0";
+    if (Math.floor(minutes/10) == 0) {
+        minutes = "0" + minutes;
     }
 
     return hours + ':' + minutes;
