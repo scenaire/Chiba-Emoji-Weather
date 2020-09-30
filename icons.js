@@ -6,7 +6,7 @@ const icons = {
         CLOUD: '\u2601',        //rerurn ☁️️
         RAIN: '\u2614',         //return ☔
         PART_CLOUDY: '\u26c5',  //return ⛅
-        SHOWER_RAIN: '\u{1f326}',//return 🌦
+        SHOWER_RAIN: '\u{1f327}',//return 🌦
         SNOW: '\u2744',         //return ❄️️
         THUNDERSTROM: '\u26c8', //return ⛈
         MIST: emoji.get('fog'),      //return 🌫️
