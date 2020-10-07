@@ -2,7 +2,7 @@
 
 It's a simple twitter bot which can tweet about Weather on Chiba, Japan Using [Openweathermap API](https://openweathermap.org/api) and Deploy on heroku
 
-you can found this bot on [@APEX_Weather](https://twitter.com/APEX_Weather)
+you can find this bot on [@APEX_Weather](https://twitter.com/APEX_Weather)
 
 This bot can :
 
