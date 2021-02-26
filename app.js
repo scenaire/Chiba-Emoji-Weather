@@ -18,7 +18,7 @@ var currentTemp, wD, windSpeed, feels_like, humidity, id;
 
 function GetData() {
 
-    var base_url = 'https://api.openweathermap.org/data/2.5/weather?id=' + process.env.CHIBA_CITY_ID +
+    var base_url = 'https://api.openweathermap.org/data/2.5/weather?id=' + process.env.KAGOSHIMA_CITY_ID +
                     '&appid=' + process.env.OPENWEATHER_API_KEY +
                     '&units=' + process.env.UNITS + '&lang=th';
 
@@ -55,7 +55,7 @@ function ConvertMetersPerSecondToKmPerHour(speed) {
 function Tweet() {
 
     
-    var weatherUpdate = 'รายงานสภาพอากาศเวลา ' + getCurrentTime() + '  ' + catRandom() + '\n\n' + getEmojis(id) + ' ' + wD + ' ' + getEmojis(id) + '\n\n' 
+    var weatherUpdate = ' รายงานสภาพอากาศเวลา ' + getCurrentTime() + '  ' + catRandom() + '\n\n' + getEmojis(id) + ' ' + wD + ' ' + getEmojis(id) + '\n\n' 
                     + emoji.get('thermometer') +' อุณหภูมิจริง : ' + currentTemp + " °C \n"
                     + getSmiley(feels_like) + ' ให้ความรู้สึกเหมือน : ' + feels_like + " °C \n"
                     + '\u{1f4a7}' + ' ค่าความชื้น : ' + humidity + " %\n" + 
@@ -66,7 +66,7 @@ function Tweet() {
     }
 
     var updateName = {
-        name: ' Chiba Weather ' + getEmojis(id)
+        name: ' (ไม่เกี่ยวกับ GNB) Kagoshima Weather ' + getEmojis(id)
     }
 
     T.post('statuses/update', tweet, callbackTweet);
