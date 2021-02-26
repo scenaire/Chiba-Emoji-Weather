@@ -1,6 +1,6 @@
-# Twitter Weather Chiba
+# Twitter Weather Kagoshima
 
-It's a simple twitter bot which can tweet about Weather on Chiba, Japan Using [Openweathermap API](https://openweathermap.org/api) and Deploy on heroku
+It's a simple twitter bot which can tweet about Weather on Kagoshima-ken, Japan Using [Openweathermap API](https://openweathermap.org/api) and Deploy on heroku
 
 you can find this bot on [@APEX_Weather](https://twitter.com/APEX_Weather)
 
